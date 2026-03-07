@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nicole Barrera Wong — Digital Marketing</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Instrument+Sans:wght@400;500;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #0f2239;
+  --gold: #c8a96e;
+  --cream: #f7f4ef;
+  --warm: #ede9e1;
+  --text: #1c1c1e;
+  --muted: #6b6560;
+  --border: #ddd8cf;
+  --white: #ffffff;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Instrument Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: rgba(247,244,239,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--navy);
+  letter-spacing: -0.3px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--navy); }
+
+.lang-toggle { display: flex; gap: 8px; }
+
+.lang-btn {
+  background: none;
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Instrument Sans', sans-serif;
+  cursor: pointer;
+  border-radius: 2px;
+  color: var(--muted);
+  transition: all 0.2s;
+}
+
+.lang-btn.active {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--white);
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 80px;
+}
+
+.hero-left {
+  padding: 80px 60px 60px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+
+.hero-name {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(44px, 5vw, 72px);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--navy);
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+}
+
+.hero-name em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(18px, 2.2vw, 27px);
+  font-weight: 300;
+  color: var(--muted);
+  margin-bottom: 32px;
+  line-height: 1.35;
+}
+
+.hero-desc {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 420px;
+  line-height: 1.75;
+  margin-bottom: 40px;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--navy);
+  color: var(--white);
+  padding: 14px 28px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: background 0.2s;
+  display: inline-block;
+}
+
+.btn-primary:hover { background: #1a3a5c; }
+
+.btn-outline {
+  border: 1.5px solid var(--navy);
+  color: var(--navy);
+  padding: 13px 28px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: all 0.2s;
+  display: inline-block;
+}
+
+.btn-outline:hover { background: var(--navy); color: var(--white); }
+
+.hero-right {
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-right::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(200,169,110,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-card {
+  background: rgba(255,255,255,0.05);
+  padding: 28px 24px;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: background 0.2s;
+}
+
+.stat-card:hover { background: rgba(255,255,255,0.09); }
+
+.stat-number {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+/* EXPERTISE */
+.expertise {
+  background: var(--white);
+  padding: 100px 60px;
+}
+
+.section-header {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+  align-items: start;
+  margin-bottom: 64px;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding-top: 8px;
+}
+
+.section-heading {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--navy);
+  letter-spacing: -0.5px;
+}
+
+.section-heading em { font-style: italic; color: var(--gold); }
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.expertise-card {
+  background: var(--cream);
+  padding: 36px 28px;
+  border-top: 3px solid transparent;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.expertise-card:hover {
+  border-color: var(--gold);
+  background: var(--warm);
+}
+
+.expertise-number {
+  font-family: 'Fraunces', serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--border);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.expertise-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.expertise-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.expertise-tags {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  font-size: 11px;
+  background: var(--border);
+  color: var(--muted);
+  padding: 3px 9px;
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+/* ACHIEVEMENTS */
+.achievements {
+  background: var(--navy);
+  padding: 100px 60px;
+}
+
+.achievements .section-heading { color: var(--white); }
+
+.achievements-list {
+  margin-top: 64px;
+  display: grid;
+  gap: 2px;
+}
+
+.achievement-row {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 40px;
+  align-items: center;
+  background: rgba(255,255,255,0.04);
+  padding: 32px 36px;
+  border-left: 3px solid transparent;
+  transition: border-color 0.2s, background 0.2s;
+  cursor: default;
+}
+
+.achievement-row:hover {
+  border-left-color: var(--gold);
+  background: rgba(255,255,255,0.07);
+}
+
+.achievement-metric {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.achievement-metric small {
+  display: block;
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.achievement-text {
+  font-size: 15px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+}
+
+.achievement-text strong {
+  color: var(--white);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+  font-size: 16px;
+}
+
+.achievement-year {
+  font-size: 12px;
+  color: rgba(255,255,255,0.25);
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* EXPERIENCE TIMELINE */
+.experience {
+  background: var(--cream);
+  padding: 100px 60px;
+}
+
+.timeline {
+  margin-top: 64px;
+  position: relative;
+  padding-left: 40px;
+  border-left: 2px solid var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--border);
+}
+
+.timeline-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+.timeline-dot {
+  position: absolute;
+  left: -49px;
+  top: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--gold);
+}
+
+.timeline-date {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.timeline-company {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.timeline-role {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.timeline-highlights {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.highlight-pill {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 12px 16px;
+  border-radius: 3px;
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.45;
+}
+
+.highlight-pill strong {
+  color: var(--navy);
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* SKILLS */
+.skills-section {
+  background: var(--white);
+  padding: 100px 60px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-top: 64px;
+}
+
+.skills-category h3 {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.skills-list { list-style: none; }
+
+.skills-list li {
+  font-size: 14px;
+  color: var(--muted);
+  padding: 7px 0;
+  border-bottom: 1px solid var(--warm);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.skills-list li::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* CONTACT */
+.contact {
+  background: var(--navy);
+  padding: 80px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.contact-left h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.contact-left h2 em { font-style: italic; color: var(--gold); }
+
+.contact-left p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+}
+
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.contact-item:hover { background: rgba(255,255,255,0.1); }
+
+.contact-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 14px;
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.contact-details { flex: 1; }
+
+.contact-type {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 2px;
+}
+
+.contact-value {
+  font-size: 15px;
+  color: var(--white);
+  font-weight: 500;
+}
+
+/* LANG SWITCHING */
+.lang-es { display: none; }
+body.lang-es .lang-en { display: none; }
+body.lang-es .lang-es { display: block; }
+body.lang-es .lang-es-inline { display: inline; }
+body.lang-es .lang-en-inline { display: none; }
+.lang-es-inline { display: none; }
+.lang-en-inline { display: inline; }
+
+/* FOOTER */
+footer {
+  background: #080f1a;
+  padding: 28px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer p { font-size: 12px; color: rgba(255,255,255,0.3); }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-left > * { animation: fadeUp 0.6s ease both; }
+.hero-eyebrow { animation-delay: 0.1s; }
+.hero-name { animation-delay: 0.2s; }
+.hero-title { animation-delay: 0.3s; }
+.hero-desc { animation-delay: 0.4s; }
+.hero-ctas { animation-delay: 0.5s; }
+
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { min-height: 300px; padding: 40px 24px; }
+  .hero-left { padding: 80px 24px 40px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .expertise { padding: 60px 24px; }
+  .section-header { grid-template-columns: 1fr; gap: 16px; }
+  .expertise-grid { grid-template-columns: 1fr; }
+  .achievements { padding: 60px 24px; }
+  .achievement-row { grid-template-columns: 80px 1fr; gap: 20px; }
+  .achievement-year { display: none; }
+  .experience { padding: 60px 24px; }
+  .timeline-highlights { grid-template-columns: 1fr; }
+  .skills-section { padding: 60px 24px; }
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact { grid-template-columns: 1fr; padding: 60px 24px; }
+  footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Nicole Barrera Wong</div>
+  <ul class="nav-links">
+    <li><a href="#expertise"><span class="lang-en-inline">Expertise</span><span class="lang-es-inline">Especialidades</span></a></li>
+    <li><a href="#achievements"><span class="lang-en-inline">Results</span><span class="lang-es-inline">Resultados</span></a></li>
+    <li><a href="#experience"><span class="lang-en-inline">Experience</span><span class="lang-es-inline">Experiencia</span></a></li>
+    <li><a href="#contact"><span class="lang-en-inline">Contact</span><span class="lang-es-inline">Contacto</span></a></li>
+  </ul>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+    <button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow lang-en">Digital Marketing Specialist · Madrid</p>
+    <p class="hero-eyebrow lang-es">Digital Marketing Specialist · Madrid</p>
+
+    <h1 class="hero-name">Nicole<br><em>Barrera</em> Wong</h1>
+
+    <p class="hero-title lang-en">Web strategy, SEO/GEO<br>and the future of search.</p>
+    <p class="hero-title lang-es">Estrategia web, SEO/GEO<br>y el futuro de la búsqueda.</p>
+
+    <p class="hero-desc lang-en">6+ years working on global web and content initiatives at ACCIONA (IBEX 35), across 10+ international markets. Focused on how brands stay visible as search evolves — from classic SEO to AI-generated answers. Native bilingual EN/ES.</p>
+    <p class="hero-desc lang-es">Más de 6 años trabajando en iniciativas globales de web y contenido en ACCIONA (IBEX 35), en más de 10 mercados internacionales. Centrada en cómo las marcas mantienen su visibilidad a medida que evoluciona el search — del SEO clásico a las respuestas generadas por IA. Bilingüe nativa EN/ES.</p>
+
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary lang-en">Get in touch</a>
+      <a href="#contact" class="btn-primary lang-es">Contactar</a>
+      <a href="cv_nicole_english.html" target="_blank" class="btn-outline lang-en">Download CV</a>
+      <a href="cv_nicole_spanish.html" target="_blank" class="btn-outline lang-es">Descargar CV</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">+38%</div>
+        <div class="stat-label lang-en">Organic traffic<br>after web redesign</div>
+        <div class="stat-label lang-es">Tráfico orgánico<br>tras rediseño web</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1.3K+</div>
+        <div class="stat-label lang-en">Monthly AI brand<br>mentions (GEO)</div>
+        <div class="stat-label lang-es">Menciones de marca<br>en IA al mes (GEO)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">663K</div>
+        <div class="stat-label lang-en">Newsletter<br>subscribers</div>
+        <div class="stat-label lang-es">Suscriptores<br>de newsletter</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">12</div>
+        <div class="stat-label lang-en">Corporate websites<br>migrated to AEM</div>
+        <div class="stat-label lang-es">Webs corporativas<br>migradas a AEM</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section class="expertise" id="expertise">
+  <div class="section-header">
+    <div>
+      <div class="section-label lang-en">Areas of Expertise</div>
+      <div class="section-label lang-es">Áreas de Especialización</div>
+    </div>
+    <h2 class="section-heading lang-en">Web, search and content<br>in the <em>AI era</em></h2>
+    <h2 class="section-heading lang-es">Web, search y contenido<br>en la <em>era de la IA</em></h2>
+  </div>
+
+  <div class="expertise-grid">
+
+    <div class="expertise-card">
+      <div class="expertise-number">01</div>
+      <div class="expertise-title lang-en">Web Development & CMS</div>
+      <div class="expertise-title lang-es">Desarrollo Web y CMS</div>
+      <div class="expertise-desc lang-en">End-to-end coordination of corporate web projects — from UX/UI design in Figma and agency management to technical build and content deployment in Adobe AEM. Recently led migration of 12 websites and 52 landing pages from Umbraco to AEM.</div>
+      <div class="expertise-desc lang-es">Coordinación end-to-end de proyectos web corporativos — desde diseño UX/UI en Figma y gestión de agencia hasta construcción técnica y despliegue de contenido en Adobe AEM. Recientemente participé en la migración de 12 webs y 52 landing pages de Umbraco a AEM.</div>
+      <div class="expertise-tags">
+        <span class="tag">Adobe AEM</span>
+        <span class="tag">Figma</span>
+        <span class="tag">Umbraco</span>
+        <span class="tag">WordPress</span>
+      </div>
+    </div>
+
+    <div class="expertise-card">
+      <div class="expertise-number">02</div>
+      <div class="expertise-title lang-en">SEO — Technical & Content</div>
+      <div class="expertise-title lang-es">SEO — Técnico y de Contenido</div>
+      <div class="expertise-desc lang-en">Full SEO architecture: pillar page strategy, keyword research, internal linking and technical oversight (Schema.org, Core Web Vitals, page speed). Coordinates content production with agency for SEO alignment across international markets.</div>
+      <div class="expertise-desc lang-es">Arquitectura SEO completa: estrategia de pillar pages, investigación de keywords, enlazado interno y supervisión técnica (Schema.org, Core Web Vitals, velocidad de página). Coordina la producción de contenido con agencia para alineación SEO en mercados internacionales.</div>
+      <div class="expertise-tags">
+        <span class="tag">SEMrush</span>
+        <span class="tag">Ahrefs</span>
+        <span class="tag">Search Console</span>
+        <span class="tag">Schema.org</span>
+      </div>
+    </div>
+
+    <div class="expertise-card">
+      <div class="expertise-number">03</div>
+      <div class="expertise-title lang-en">GEO — AI Search Optimisation</div>
+      <div class="expertise-title lang-es">GEO — Optimización para IA</div>
+      <div class="expertise-desc lang-en">Exploring and implementing GEO (Generative Engine Optimisation) frameworks to maximise brand presence in AI-generated answers — ChatGPT, Perplexity, Gemini and Google AI Overviews. Designed metadata structures and content formats aligned with LLM retrieval logic.</div>
+      <div class="expertise-desc lang-es">Explorando e implementando frameworks GEO (Generative Engine Optimisation) para maximizar la presencia de marca en respuestas generadas por IA — ChatGPT, Perplexity, Gemini y Google AI Overviews. Diseño de estructuras de metadatos y formatos de contenido alineados con la lógica de recuperación de LLMs.</div>
+      <div class="expertise-tags">
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Perplexity</span>
+        <span class="tag">Gemini</span>
+        <span class="tag">AI Overviews</span>
+      </div>
+    </div>
+
+    <div class="expertise-card">
+      <div class="expertise-number">04</div>
+      <div class="expertise-title lang-en">Content Strategy & Operations</div>
+      <div class="expertise-title lang-es">Estrategia y Operaciones de Contenido</div>
+      <div class="expertise-desc lang-en">Defines content strategy and editorial direction for acciona.com and brand content sites, coordinating production and publication with a content agency. Oversees quality, brand alignment and SEO across international web properties.</div>
+      <div class="expertise-desc lang-es">Define la estrategia de contenido y la dirección editorial para acciona.com y los sitios de contenido de marca, coordinando la producción y publicación con una agencia de contenido. Supervisa la calidad, alineación de marca y SEO en las propiedades web internacionales.</div>
+      <div class="expertise-tags">
+        <span class="tag">acciona.com</span>
+        <span class="tag">Editorial Planning</span>
+        <span class="tag">Agency Briefing</span>
+      </div>
+    </div>
+
+    <div class="expertise-card">
+      <div class="expertise-number">05</div>
+      <div class="expertise-title lang-en">Inbound & Newsletter Strategy</div>
+      <div class="expertise-title lang-es">Inbound y Estrategia de Newsletter</div>
+      <div class="expertise-desc lang-en">Defines nurturing and subscriber acquisition strategy for a community of 663K+ across 6 bilingual newsletters. Leads editorial direction and campaign briefs; agency handles design, copy and deployment via HubSpot. Introduced lead magnet programme that grew subscribers by up to 200% in a single quarter.</div>
+      <div class="expertise-desc lang-es">Define la estrategia de nurturing y captación de suscriptores para una comunidad de 663K+ en 6 newsletters bilingües. Lidera la dirección editorial y los briefs de campaña; la agencia gestiona diseño, redacción y maquetación en HubSpot. Introdujo el programa de lead magnets que hizo crecer los suscriptores hasta un 200% en un solo trimestre.</div>
+      <div class="expertise-tags">
+        <span class="tag">HubSpot</span>
+        <span class="tag">Lead Magnets</span>
+        <span class="tag">Nurturing</span>
+        <span class="tag">Segmentation</span>
+      </div>
+    </div>
+
+    <div class="expertise-card">
+      <div class="expertise-number">06</div>
+      <div class="expertise-title lang-en">Analytics & Reporting</div>
+      <div class="expertise-title lang-es">Analítica y Reporting</div>
+      <div class="expertise-desc lang-en">Performance tracking across web, SEO and inbound channels using GA4, Looker Studio, Hotjar, Sealmetrics and Meltwater. Translates data into actionable insight for strategy iteration and stakeholder reporting.</div>
+      <div class="expertise-desc lang-es">Seguimiento de rendimiento en canales web, SEO e inbound con GA4, Looker Studio, Hotjar, Sealmetrics y Meltwater. Traduce datos en insights accionables para iterar la estrategia e informar a stakeholders.</div>
+      <div class="expertise-tags">
+        <span class="tag">GA4</span>
+        <span class="tag">Looker Studio</span>
+        <span class="tag">Meltwater</span>
+        <span class="tag">Hotjar</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="achievements" id="achievements">
+  <div class="section-header">
+    <div>
+      <div class="section-label lang-en" style="color:rgba(200,169,110,0.7)">Impact & Results</div>
+      <div class="section-label lang-es" style="color:rgba(200,169,110,0.7)">Impacto y Resultados</div>
+    </div>
+    <h2 class="section-heading lang-en">Numbers that<br><em>tell the story</em></h2>
+    <h2 class="section-heading lang-es">Cifras que<br><em>lo dicen todo</em></h2>
+  </div>
+
+  <div class="achievements-list">
+
+    <div class="achievement-row">
+      <div class="achievement-metric">+75%<small>Mobile perf.</small></div>
+      <div class="achievement-text">
+        <strong class="lang-en">CMS Migration: Umbraco → Adobe AEM</strong>
+        <strong class="lang-es">Migración CMS: Umbraco → Adobe AEM</strong>
+        <span class="lang-en">Contributed to the migration of 12 corporate websites and 52 landing pages into a unified Adobe ecosystem. Results: mobile performance +75% YoY, SEO score 10/10, accessibility 9.7/10 (Lighthouse).</span>
+        <span class="lang-es">Participé en la migración de 12 webs corporativas y 52 landing pages a un ecosistema Adobe unificado. Resultados: performance móvil +75% interanual, SEO 10/10, accesibilidad 9,7/10 (Lighthouse).</span>
+      </div>
+      <div class="achievement-year">2024</div>
+    </div>
+
+    <div class="achievement-row">
+      <div class="achievement-metric">+38%<small>Organic traffic</small></div>
+      <div class="achievement-text">
+        <strong class="lang-en">Corporate website redesign — acciona.com</strong>
+        <strong class="lang-es">Rediseño de la web corporativa — acciona.com</strong>
+        <span class="lang-en">Coordinated the full web redesign project from Figma wireframes through to live deployment. Organic traffic grew +38% in year one, bounce rate dropped 45%, and organic acquisition reached 44% of total traffic.</span>
+        <span class="lang-es">Coordiné el proyecto de rediseño web completo, desde los wireframes en Figma hasta el despliegue en producción. El tráfico orgánico creció un +38% en el primer año, el bounce rate bajó un 45%, y la adquisición orgánica alcanzó el 44% del tráfico total.</span>
+      </div>
+      <div class="achievement-year">2024</div>
+    </div>
+
+    <div class="achievement-row">
+      <div class="achievement-metric">€273K<small>SEO value</small></div>
+      <div class="achievement-text">
+        <strong class="lang-en">Organic SEO economic value — +210% YoY</strong>
+        <strong class="lang-es">Valor económico del SEO orgánico — +210% interanual</strong>
+        <span class="lang-en">Keyword positioning in high-value strategic terms ("green hydrogen", "reverse osmosis desalination", "blade lifter") generated €273K+ in organic economic value in 2025, with a global CPC equivalent of €0.13.</span>
+        <span class="lang-es">El posicionamiento en keywords estratégicas de alto valor ("hidrógeno verde", "desalación por ósmosis inversa", "blade lifter") generó 273K€+ en valor económico orgánico en 2025, con un CPC global equivalente de 0,13€.</span>
+      </div>
+      <div class="achievement-year">2025</div>
+    </div>
+
+    <div class="achievement-row">
+      <div class="achievement-metric">1.3K+<small>AI mentions/mo</small></div>
+      <div class="achievement-text">
+        <strong class="lang-en">GEO strategy — brand visibility in AI search</strong>
+        <strong class="lang-es">Estrategia GEO — visibilidad de marca en IA</strong>
+        <span class="lang-en">Working on GEO (Generative Engine Optimisation) to improve ACCIONA's presence in AI-generated answers. Designed metadata and content frameworks for ChatGPT, Perplexity, Gemini and Google AI Overviews — resulting in 1,300+ monthly brand mentions and growing AI-sourced traffic.</span>
+        <span class="lang-es">Trabajando en GEO (Generative Engine Optimisation) para mejorar la presencia de ACCIONA en respuestas generadas por IA. Diseñé frameworks de metadatos y contenido para ChatGPT, Perplexity, Gemini y Google AI Overviews — logrando 1.300+ menciones mensuales de marca y tráfico procedente de IA en crecimiento.</span>
+      </div>
+      <div class="achievement-year">2024–25</div>
+    </div>
+
+    <div class="achievement-row">
+      <div class="achievement-metric">+200%<small>Subscribers</small></div>
+      <div class="achievement-text">
+        <strong class="lang-en">Newsletter growth via lead magnet strategy</strong>
+        <strong class="lang-es">Crecimiento de newsletter via lead magnets</strong>
+        <span class="lang-en">Introduced lead magnet programme (guides, resources, sustainability calendar) that grew newsletter subscribers by up to 200% in Q4 2024. Total community: 663K+ bilingual subscribers across 6 newsletters.</span>
+        <span class="lang-es">Introduje un programa de lead magnets (guías, recursos, calendario de sostenibilidad) que hizo crecer los suscriptores de newsletter hasta un 200% en Q4 2024. Comunidad total: 663K+ suscriptores bilingües en 6 newsletters.</span>
+      </div>
+      <div class="achievement-year">Q4 2024</div>
+    </div>
+
+    <div class="achievement-row">
+      <div class="achievement-metric">39%<small>Of annual views</small></div>
+      <div class="achievement-text">
+        <strong class="lang-en">XMAS brand campaign — video production coordination</strong>
+        <strong class="lang-es">Campaña de marca XMAS — coordinación de producción de vídeo</strong>
+        <span class="lang-en">Collaborated with the advertising agency on the creative production of ACCIONA's XMAS 2025 brand video campaign — which went on to concentrate 39% of total annual social media views, becoming the year's #1 visibility driver.</span>
+        <span class="lang-es">Colaboré con la agencia de publicidad en la producción creativa del vídeo de la campaña de marca XMAS 2025 de ACCIONA — que concentró el 39% de las visualizaciones anuales totales en redes sociales, convirtiéndose en el principal driver de visibilidad del año.</span>
+      </div>
+      <div class="achievement-year">2025</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="section-header">
+    <div>
+      <div class="section-label lang-en">Career</div>
+      <div class="section-label lang-es">Trayectoria</div>
+    </div>
+    <h2 class="section-heading lang-en">6+ years of<br><em>global digital work</em></h2>
+    <h2 class="section-heading lang-es">Más de 6 años de<br><em>marketing digital global</em></h2>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Jan 2020 – Present</div>
+      <div class="timeline-company">ACCIONA</div>
+      <div class="timeline-role lang-en">Digital Marketing Specialist — Web, SEO/GEO & Inbound · Global Communications team</div>
+      <div class="timeline-role lang-es">Digital Marketing Specialist — Web, SEO/GEO e Inbound · Equipo de Comunicación Global</div>
+      <div class="timeline-highlights">
+        <div class="highlight-pill lang-en">
+          <strong>Web & CMS</strong>
+          UX in Figma → dev management → Adobe AEM. 12 websites, 52 landing pages.
+        </div>
+        <div class="highlight-pill lang-es">
+          <strong>Web y CMS</strong>
+          UX en Figma → gestión técnica → Adobe AEM. 12 webs, 52 landing pages.
+        </div>
+        <div class="highlight-pill lang-en">
+          <strong>SEO (technical + content)</strong>
+          Keyword strategy, Schema.org, Core Web Vitals, €273K+ organic value.
+        </div>
+        <div class="highlight-pill lang-es">
+          <strong>SEO (técnico + contenido)</strong>
+          Estrategia de keywords, Schema.org, Core Web Vitals, 273K€+ valor orgánico.
+        </div>
+        <div class="highlight-pill lang-en">
+          <strong>GEO / AI Search</strong>
+          Metadata frameworks for ChatGPT, Perplexity, Gemini. 1,300+ mentions/mo.
+        </div>
+        <div class="highlight-pill lang-es">
+          <strong>GEO / Búsqueda en IA</strong>
+          Frameworks de metadatos para ChatGPT, Perplexity, Gemini. 1.300+ menciones/mes.
+        </div>
+        <div class="highlight-pill lang-en">
+          <strong>Inbound & Newsletters</strong>
+          663K+ subscribers · 6 bilingual newsletters · HubSpot · +200% subscriber growth Q4'24.
+        </div>
+        <div class="highlight-pill lang-es">
+          <strong>Inbound y Newsletters</strong>
+          663K+ suscriptores · 6 newsletters bilingües · HubSpot · +200% en Q4'24.
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2021 – 2022</div>
+      <div class="timeline-company lang-en">The Valley Business & Tech School</div>
+      <div class="timeline-company lang-es">The Valley Business & Tech School</div>
+      <div class="timeline-role lang-en">Executive Programme in Digital Marketing</div>
+      <div class="timeline-role lang-es">Programa Ejecutivo en Marketing Digital</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2015 – 2019</div>
+      <div class="timeline-company lang-en">Universidad Complutense de Madrid</div>
+      <div class="timeline-company lang-es">Universidad Complutense de Madrid</div>
+      <div class="timeline-role lang-en">Bachelor's in Business Management · Erasmus at WU Vienna (2017–18)</div>
+      <div class="timeline-role lang-es">Grado en ADE · Erasmus en WU Viena (2017–18)</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="section-header">
+    <div>
+      <div class="section-label lang-en">Tools & Skills</div>
+      <div class="section-label lang-es">Herramientas</div>
+    </div>
+    <h2 class="section-heading lang-en">The full<br><em>toolkit</em></h2>
+    <h2 class="section-heading lang-es">El kit<br><em>completo</em></h2>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skills-category">
+      <h3 class="lang-en">Web & CMS</h3>
+      <h3 class="lang-es">Web y CMS</h3>
+      <ul class="skills-list">
+        <li>Adobe Experience Manager</li>
+        <li>Figma (UX/UI)</li>
+        <li>WordPress</li>
+        <li>Umbraco</li>
+        <li>HTML / CSS (basics)</li>
+        <li>Jira</li>
+      </ul>
+    </div>
+    <div class="skills-category">
+      <h3>SEO & GEO</h3>
+      <ul class="skills-list">
+        <li>SEMrush / Ahrefs</li>
+        <li>Google Search Console</li>
+        <li>Schema.org</li>
+        <li>Core Web Vitals</li>
+        <li>GEO / AI Search</li>
+        <li>Lighthouse</li>
+      </ul>
+    </div>
+    <div class="skills-category">
+      <h3 class="lang-en">Analytics</h3>
+      <h3 class="lang-es">Analítica</h3>
+      <ul class="skills-list">
+        <li>Google Analytics 4</li>
+        <li>Looker Studio</li>
+        <li>Hotjar</li>
+        <li>Sealmetrics</li>
+        <li>Meltwater</li>
+        <li>A/B Testing</li>
+      </ul>
+    </div>
+    <div class="skills-category">
+      <h3 class="lang-en">Inbound & Languages</h3>
+      <h3 class="lang-es">Inbound e Idiomas</h3>
+      <ul class="skills-list">
+        <li>HubSpot</li>
+        <li>Lead Magnets</li>
+        <li>Nurturing & Segmentation</li>
+        <li>Spanish — Native</li>
+        <li>English — Native / Bilingual</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-left">
+    <h2 class="lang-en">Let's talk<br>about <em>digital</em><br>strategy.</h2>
+    <h2 class="lang-es">Hablemos de<br><em>estrategia</em><br>digital.</h2>
+    <p class="lang-en" style="margin-top:16px;">Open to new opportunities in web strategy, SEO/GEO and digital marketing. Available for interviews in Madrid and remotely.</p>
+    <p class="lang-es" style="margin-top:16px;">Abierta a nuevas oportunidades en estrategia web, SEO/GEO y marketing digital. Disponible para entrevistas en Madrid y de forma remota.</p>
+  </div>
+  <div class="contact-right">
+    <a href="mailto:nicolebarrera.w@gmail.com" class="contact-item">
+      <div class="contact-icon">✉</div>
+      <div class="contact-details">
+        <div class="contact-type">Email</div>
+        <div class="contact-value">nicolebarrera.w@gmail.com</div>
+      </div>
+    </a>
+    <a href="tel:+34659349728" class="contact-item">
+      <div class="contact-icon">☎</div>
+      <div class="contact-details">
+        <div class="contact-type">Phone</div>
+        <div class="contact-value">+34 659 34 97 28</div>
+      </div>
+    </a>
+    <a href="https://linkedin.com/in/nicole-barrera-wong" target="_blank" class="contact-item">
+      <div class="contact-icon">in</div>
+      <div class="contact-details">
+        <div class="contact-type">LinkedIn</div>
+        <div class="contact-value">nicole-barrera-wong</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Nicole Barrera Wong</p>
+  <p class="lang-en">Digital Marketing Specialist · Madrid, Spain</p>
+  <p class="lang-es">Digital Marketing Specialist · Madrid, España</p>
+</footer>
+
+<script>
+function setLang(lang) {
+  if (lang === 'es') {
+    document.body.classList.add('lang-es');
+    document.getElementById('btn-es').classList.add('active');
+    document.getElementById('btn-en').classList.remove('active');
+  } else {
+    document.body.classList.remove('lang-es');
+    document.getElementById('btn-en').classList.add('active');
+    document.getElementById('btn-es').classList.remove('active');
+  }
+}
+</script>
+
+</body>
+</html>
